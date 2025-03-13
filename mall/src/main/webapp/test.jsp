@@ -10,6 +10,6 @@
 <title>jsp test</title>
 </head>
 <body>
-jsp <%=user %>입니다.
+jsp <%=user %>입니다. 수정하였습니다.
 </body>
 </html>
