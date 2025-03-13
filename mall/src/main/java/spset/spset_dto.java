@@ -1,7 +1,9 @@
 package spset;
 
 public class spset_dto {
-	String mname,admin_email,use_point,signup_point,signup_lv,cpname,cpno,ceoname,ceotel,ecommno,telcommno,bzipcode,baddr,secname,secmail,banknm,bankaccno,use_creditcard,use_mobile,use_gift,min_p_pay,max_p_pay,use_cash_rec,shipp_compnm,shipp_fee,des_deliv_date;
+	String mname,admin_email,use_point,signup_point,signup_lv,cpname,cpno,ceoname,ceotel,ecommno;
+	String telcommno,bzipcode,baddr,secname,secmail,banknm,bankaccno,use_creditcard,use_mobile,use_gift;
+	String min_p_pay,max_p_pay,use_cash_rec,shipp_compnm,shipp_fee,des_deliv_date;
 
 	public String getMname() {
 		return mname;

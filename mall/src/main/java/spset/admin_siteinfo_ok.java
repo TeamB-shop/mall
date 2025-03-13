@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class admin_diteinfo_ok extends HttpServlet {
+public class admin_siteinfo_ok extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        PrintWriter pw = null;
        
 
 	protected void doPost(HttpServletRequest rq, HttpServletResponse rp) throws ServletException, IOException {
 		rq.setCharacterEncoding("utf-8");
-		rp.setContentType("html/text;charset=utf-8");
+		rp.setContentType("text/html;charset=utf-8");
 		
 		this.pw=rp.getWriter();
 		
@@ -49,40 +49,42 @@ public class admin_diteinfo_ok extends HttpServlet {
 		
 		//DTO로 쏩니다..
 		spset_dto dto = new spset_dto();
-//		dto.setMname(mname);
-//		dto.setAdmin_email(admin_email);
-//		dto.setUse_point(use_point);
-//		dto.setSignup_point(signup_point);
-//		dto.setSignup_lv(signup_lv);
-//		dto.setCpname(cpname);
-//		dto.setCpno(cpno);
-//		dto.setCeoname(ceoname);
-//		dto.setCeotel(ceotel);
-//		dto.setEcommno(ecommno);
-//		dto.setTelcommno(telcommno);
-//		dto.setBzipcode(bzipcode);
-//		dto.setBaddr(baddr);
-//		dto.setSecname(secname);
-//		dto.setSecmail(secmail);
-//		dto.setBanknm(banknm);
-//		dto.setBankaccno(bankaccno);
-//		dto.setUse_creditcard(use_creditcard);
-//		dto.setUse_mobile(use_mobile);
-//		dto.setUse_gift(use_gift);
-//		dto.setMin_p_pay(min_p_pay);
-//		dto.setMax_p_pay(max_p_pay);
-//		dto.setUse_cash_rec(use_cash_rec);
-//		dto.setShipp_compnm(shipp_compnm);
-//		dto.setShipp_fee(shipp_fee);
-//		dto.setDes_deliv_date(des_deliv_date);
-//		
-//		Integer result = new insert_join().insert_member(dto);
-//		if(result>0) {//성공
-//			pw.write("<script>alert('회원가입 성공!'); location.href='./login.do';</script>");
-//		}else {//실패
-//			pw.write("<script>alert('회원가입이 실패했습니다...'); history.go(-1);</script>");
-//		}
-//		this.pw.close();
+		dto.setMname(mname);
+		dto.setAdmin_email(admin_email);
+		dto.setUse_point(use_point);
+		dto.setSignup_point(signup_point);
+		dto.setSignup_lv(signup_lv);
+		dto.setCpname(cpname);
+		dto.setCpno(cpno);
+		dto.setCeoname(ceoname);
+		dto.setCeotel(ceotel);
+		dto.setEcommno(ecommno);
+		dto.setTelcommno(telcommno);
+		dto.setBzipcode(bzipcode);
+		dto.setBaddr(baddr);
+		dto.setSecname(secname);
+		dto.setSecmail(secmail);
+		dto.setBanknm(banknm);
+		dto.setBankaccno(bankaccno);
+		dto.setUse_creditcard(use_creditcard);
+		dto.setUse_mobile(use_mobile);
+		dto.setUse_gift(use_gift);
+		dto.setMin_p_pay(min_p_pay);
+		dto.setMax_p_pay(max_p_pay);
+		dto.setUse_cash_rec(use_cash_rec);
+		dto.setShipp_compnm(shipp_compnm);
+		dto.setShipp_fee(shipp_fee);
+		dto.setDes_deliv_date(des_deliv_date);
+		
+		Integer result = new insert_spset().insert_datas(dto);
+		System.out.println("DB 저장 결과: " + result);
+		
+		if(result>0) {//성공
+			pw.write("<script>alert('쇼핑몰 세팅완료'); history.go(-1);</script>");
+		}else {//실패
+			pw.write("<script>alert('쇼핑몰 세팅 실패...'); history.go(-1);</script>");
+		}
+		this.pw.close();
 	}
 
 }
