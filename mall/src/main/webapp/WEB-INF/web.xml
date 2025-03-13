@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>mall</display-name>
-  
+  <servlet>
+  <servlet-name>admin_diteinfo_ok</servlet-name>
+  <servlet-class>spset.admin_diteinfo_ok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>admin_diteinfo_ok</servlet-name>
+  <url-pattern>/spset/admin_diteinfo_ok.do</url-pattern>
+  </servlet-mapping>
 </web-app>
