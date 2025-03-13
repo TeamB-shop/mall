@@ -2,4 +2,22 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>mall</display-name>
 
+	<servlet>
+	<servlet-name>index</servlet-name>
+	<servlet-class>admin.index</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>index</servlet-name>
+	<url-pattern>/admin/index.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+	<servlet-name>masterloginok</servlet-name>
+	<servlet-class>adlist.masterloginok</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>masterloginok</servlet-name>
+	<url-pattern>/adlist/masterloginok.do</url-pattern>
+	</servlet-mapping>
+
 </web-app>
