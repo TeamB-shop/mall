@@ -32,6 +32,7 @@ public class login_ok extends HttpServlet {
 		
 		admin_dto admin = dq.get_admin_dto(); //Model에서 DTO를 생성한 값을 Controller에 받는 역할
 		String aname = admin.getAname();
+		String approval = admin.getApproval();
 		String master = admin.getMaster();
 
 		if(result == "ok") {
@@ -45,10 +46,18 @@ public class login_ok extends HttpServlet {
 						+ "</script>");
 			}
 			else {
-				this.pw.write("<script>"
-						+ "alert('관리자님 로그인 하셨습니다..');"
-						+ "location.href='./admin_list.do';"
-						+ "</script>");				
+				if(approval.equals("Y")) {
+					this.pw.write("<script>"
+							+ "alert('관리자님 로그인 하셨습니다..');"
+							+ "location.href='./admin_siteinfo.jsp';"
+							+ "</script>");		
+				}
+				else {
+					this.pw.write("<script>"
+							+ "alert('마스터 승인 대기중입니다. 마스터에게 연락해 보십시오.');"
+							+ "history.go(-1);"
+							+ "</script>");
+				}
 			}
 		}
 		else {

@@ -2,7 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>mall</display-name>
 
-
+	<servlet>
+		<servlet-name>login_approve</servlet-name>
+		<servlet-class>admin.login_approve</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login_approve</servlet-name>
+		<url-pattern>/admin/login_approve.do</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>admin_siteinfo_ok</servlet-name>
@@ -12,7 +19,6 @@
 		<servlet-name>admin_siteinfo_ok</servlet-name>
 		<url-pattern>/spset/admin_siteinfo_ok.do</url-pattern>
 	</servlet-mapping>
-
 
 	<servlet>
 		<servlet-name>index</servlet-name>
@@ -59,4 +65,5 @@
 		<servlet-name>admin_list</servlet-name>
 		<url-pattern>/admin/admin_list.do</url-pattern>
 	</servlet-mapping>
+	
 </web-app>

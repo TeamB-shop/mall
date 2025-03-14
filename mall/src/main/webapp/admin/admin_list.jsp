@@ -45,12 +45,13 @@
 <%
 	} else {
 		for(int i=1; i<admins.size(); i++) {
+			String aid = admins.get(i).getAid();
 			String tel = "010" + admins.get(i).getAtel1() + admins.get(i).getAtel2();
 %>
     <ol class="new_admin_lists2">
         <li><%=i%></li>
         <li><%=admins.get(i).getAname()%></li>
-        <li><%=admins.get(i).getAid()%></li>
+        <li><%=aid%></li>
         <li><%=tel%></li>
         <li><%=admins.get(i).getAemail()%></li>
         <li><%=admins.get(i).getAdepartment()%></li>
@@ -60,11 +61,11 @@
 <%
 			if(admins.get(i).getApproval().equals("N")) {
 %>
-				<input type="button" value="승인" class="new_addbtn1" title="승인">	
+				미승인<input type="button" value="승인" class="new_addbtn1" onclick="approval(this, '<%=aid%>')">	
 <%
 			} else {
 %>
-        		<input type="button" value="미승인" class="new_addbtn2" title="미승인">
+ 				승인<input type="button" value="미승인" class="new_addbtn2" onclick="approval(this, '<%=aid%>')">
 <% 
 			}
 %>
@@ -84,4 +85,50 @@
     </div>
 </footer>
 </body>
+<script>
+function approval(ob, aid){
+	let statusText = ob.previousSibling;
+	if(ob.value == "승인"){
+		ob.value = "미승인";
+		statusText.textContent = "승인"
+		ajaxpost(aid, 'Y');
+	}
+	else{
+		ob.value = "승인";
+		statusText.textContent = "미승인";
+		ajaxpost(aid, 'N')
+	}
+}
+
+//Ajax 함수를 이용하여 승인, 미승인 처리
+var ok = "";
+function ajaxpost(aid, approval){
+	function wck(){
+		if(window.XMLHttpRequest){ 
+			return new XMLHttpRequest(); 
+		}
+	}
+	
+	function getdata(){
+		console.log(ok.readyState);
+		if(ok.readyState==XMLHttpRequest.DONE && ok.status==200){
+			if(this.response == "Y"){
+				alert("승인 처리되었습니다..");
+			}
+			else if(this.response == "N"){
+				alert("미승인 처리되었습니다.");
+			}
+			else if(this.response == "NO"){
+				alert("오류가 있어 처리되지 않았습니다.");
+			}
+		}
+	}
+
+	ok = wck();
+	ok.onreadystatechange = getdata; 
+	ok.open("GET","./login_approve.do?aid="+aid+"&approval="+approval,true);
+	ok.send(); 
+}
+
+</script>
 </html>

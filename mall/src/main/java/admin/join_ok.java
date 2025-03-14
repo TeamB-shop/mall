@@ -36,11 +36,16 @@ public class join_ok extends HttpServlet {
 		Integer result = new data_query().insert_admin(dto);
 
 		this.pw = response.getWriter();
-		if(result > 0 ) {
+		if(result == 1 ) {
 			this.pw.write("<script>"
-					+ "alert('관리자 등록이 정상처리 되었습니다.');"
+					+ "alert('관리자 등록이 정상처리 되었습니다. 마스터 관리자가 승인후 연락드리겠습니다.');"
 					+ "location.href='../admin/index.do';"
 					+ "</script>");
+		}else if(result == 99) {
+			this.pw.write("<script>"
+					+ "alert('기존 가입자와 이메일 또는 휴대폰 번호가 동일하여 등록되지 않았습니다.');"
+					+ "history.go(-1);"
+					+ "</script>");		
 		}else {
 			this.pw.write("<script>"
 					+ "alert('시스템 점검으로 관리자등록이 되지 않았습니다.');"

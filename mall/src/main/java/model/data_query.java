@@ -33,7 +33,9 @@ public class data_query {
 			this.ps.setString(8, admin.getAposition());
 			
 			this.res = this.ps.executeUpdate();
-	
+			
+		}catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
+			this.res = 99;	//Duplicate entry Error 발생 경우
 		}catch (Exception e) {
 			System.out.println(e);
 			this.res = 0;
@@ -54,7 +56,7 @@ public class data_query {
 		try {
 			this.admin = new admin_dto();
 			this.con = this.db.getConnection();
-			this.sql = "select aname, master from admin where aid=? and apassword=?";
+			this.sql = "select aname, approval, master from admin where aid=? and apassword=?";
 			this.ps = this.con.prepareStatement(this.sql);
 			this.ps.setString(1, md.getAid());
 			this.ps.setString(2, md.getApassword());
@@ -62,9 +64,10 @@ public class data_query {
 			if(this.rs.next() == true) { //정상적으로 아이디 및 패스워드가 맞을 경우
 				this.result = "ok";
 				this.admin.setAname(this.rs.getString("aname"));  //이름
+				this.admin.setApproval(this.rs.getString("approval"));  //승인 여부('Y', 'N')
 				this.admin.setMaster(this.rs.getString("master"));  //master 여부('Y', 'N')
 			}
-			
+		
 		}catch (Exception e) {
 			System.out.println(e);
 			this.result = null;
@@ -112,10 +115,33 @@ public class data_query {
 			
 		}catch (Exception e) {
 			System.out.println(e);
-			this.admins = null;
+			this.res = 0;
 		}finally {
 			try {
-				this.rs.close();
+				this.ps.close();
+				this.con.close();
+			}catch (Exception e) {
+				this.res = 0;
+			}
+		}
+		
+		return this.admins;
+	}
+	
+	public Integer change_approval(String aid, String approval) {
+		try {
+			this.con = this.db.getConnection();
+			this.sql = "update admin set approval=? where aid=?";
+			this.ps = this.con.prepareStatement(this.sql);
+			this.ps.setString(1, approval);
+			this.ps.setString(2, aid);
+			this.res = this.ps.executeUpdate();
+		
+		}catch (Exception e) {
+			System.out.println(e);
+			this.res = 0;
+		}finally {
+			try {
 				this.ps.close();
 				this.con.close();
 			}catch (Exception e) {
@@ -123,7 +149,6 @@ public class data_query {
 			}
 		}
 		
-		return this.admins;
-	}
-	
+		return this.res;
+	}		
 }
