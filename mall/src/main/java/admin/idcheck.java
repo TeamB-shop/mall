@@ -21,7 +21,7 @@ public class idcheck extends HttpServlet {
 	ResultSet rs = null;
 	
 	m_dbinfo db = new m_dbinfo();
-	String msg = ""; //ÇÁ·ĞÆ®¾Øµå¿¡ º¸³¾ °á°ú°ª º¯¼ö
+	String msg = ""; //í”„ë¡ íŠ¸ì•¤ë“œì— ë³´ë‚¼ ê²°ê³¼ê°’ ë³€ìˆ˜
 	String sql = "";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,12 +50,12 @@ public class idcheck extends HttpServlet {
 					}
 				}
 			}
-			this.pw.write(this.msg); //ajax¿¡ °á°ú°ª º¸³¾¶§´Â PrintWriter¸¦ ÀÌ¿ë
+			this.pw.write(this.msg); //ajaxì— ê²°ê³¼ê°’ ë³´ë‚¼ë•ŒëŠ” PrintWriterë¥¼ ì´ìš©
 				
 		}
 		catch (Exception e) {
 			System.out.println(e);
-			this.msg = "CODE Error : 844"; //ÀÓÀÇÀÇ ¿¡·¯ÄÚµå <- DB Connection ¿À·ù
+			this.msg = "CODE Error : 844"; //ì„ì˜ì˜ ì—ëŸ¬ì½”ë“œ <- DB Connection ì˜¤ë¥˜
 			this.pw.write(this.msg);
 		}
 		finally {

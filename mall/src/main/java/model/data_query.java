@@ -19,7 +19,7 @@ public class data_query {
 			this.con = this.db.getConnection();
 			this.sql = "insert into admin values ('0',?,?,?,?,?,?,?,?,'N',now())";
 			this.ps = this.con.prepareStatement(this.sql);
-			//DTO¿¡¼­ getter ÀÌ¿ëÇÏ¿© DB¿¡ ÀúÀå
+			//DTOì—ì„œ getter ì´ìš©í•˜ì—¬ DBì— ì €ì¥
 			this.ps.setString(1, admin.getAid());
 			this.ps.setString(2, admin.getApassword());
 			this.ps.setString(3, admin.getAname());
@@ -55,10 +55,10 @@ public class data_query {
 			this.ps.setString(1, md.getAid());
 			this.ps.setString(2, md.getApassword());
 			this.rs = this.ps.executeQuery();
-			if(this.rs.next() == true) { //Á¤»óÀûÀ¸·Î ¾ÆÀÌµğ ¹× ÆĞ½º¿öµå°¡ ¸ÂÀ» °æ¿ì
+			if(this.rs.next() == true) { //ì •ìƒì ìœ¼ë¡œ ì•„ì´ë”” ë° íŒ¨ìŠ¤ì›Œë“œê°€ ë§ì„ ê²½ìš°
 				this.result = "ok";
-				this.admin.setAid(this.rs.getString("aid"));  //¾ÆÀÌµğ
-				this.admin.setMaster(this.rs.getString("master"));  //¾ÆÀÌµğ
+				this.admin.setAid(this.rs.getString("aid"));  //ì•„ì´ë””
+				this.admin.setMaster(this.rs.getString("master"));  //ì•„ì´ë””
 			}
 			
 		}catch (Exception e) {

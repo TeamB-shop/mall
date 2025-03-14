@@ -6,14 +6,14 @@ public class m_md5 {
 	
 	public String md5_code(String pw) {
 		StringBuilder sb = new StringBuilder();
-		String md5_data = "";  //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °ªÀ» md5·Î ¾ÏÈ£È­ º¯¼ö
+		String md5_data = "";  //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì„ md5ë¡œ ì•”í˜¸í™” ë³€ìˆ˜
 		
 		try {
 			MessageDigest md  = MessageDigest.getInstance("md5");
 			md.update(pw.getBytes());
 			byte md5byte[] = md.digest();
 			
-			//¾ÏÈ£È­ ¾Ë°í¸®Áò
+			//ì•”í˜¸í™” ì•Œê³ ë¦¬ì¦˜
 			for(byte alg : md5byte) {
 				sb.append(String.format("%02x", alg));
 			}

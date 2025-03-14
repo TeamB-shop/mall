@@ -32,18 +32,18 @@ public class join_ok extends HttpServlet {
 		dto.setAposiition(request.getParameter("aposiition"));
 
 		
-		//DTO°ªÀ» insert Model Àü´ÞÇÔ
+		//DTOê°’ì„ insert Model ì „ë‹¬í•¨
 		Integer result = new data_query().insert_admin(dto);
 
 		this.pw = response.getWriter();
 		if(result > 0 ) {
 			this.pw.write("<script>"
-					+ "alert('°ü¸®ÀÚ µî·ÏÀÌ Á¤»óÃ³¸® µÇ¾ú½À´Ï´Ù.');"
+					+ "alert('ê´€ë¦¬ìž ë“±ë¡ì´ ì •ìƒì²˜ë¦¬ ë˜ì—ˆìŠµë‹ˆë‹¤.');"
 					+ "location.href='../admin/index.do';"
 					+ "</script>");
 		}else {
 			this.pw.write("<script>"
-					+ "alert('½Ã½ºÅÛ Á¡°ËÀ¸·Î °ü¸®ÀÚµî·ÏÀÌ µÇÁö ¾Ê¾Ò½À´Ï´Ù.');"
+					+ "alert('ì‹œìŠ¤í…œ ì ê²€ìœ¼ë¡œ ê´€ë¦¬ìžë“±ë¡ì´ ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');"
 					+ "history.go(-1);"
 					+ "</script>");
 		}

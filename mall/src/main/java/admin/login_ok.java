@@ -28,10 +28,10 @@ public class login_ok extends HttpServlet {
 		this.dto.setAid(request.getParameter("aid"));
 		this.dto.setApassword(new m_md5().md5_code(request.getParameter("apassword")));
 		
-		this.dq = new data_query();  //data_quary Model »ı¼º
-		String result = dq.admin_login(this.dto); //Controller => Model·Î DTO·Î °ªÀ» Àü¼Û
+		this.dq = new data_query();  //data_quary Model ìƒì„±
+		String result = dq.admin_login(this.dto); //Controller => Modelë¡œ DTOë¡œ ê°’ì„ ì „ì†¡
 		
-		admin_dto admin = dq.get_admin_dto(); //Model¿¡¼­ DTO¸¦ »ı¼ºÇÑ °ªÀ» Controller¿¡ ¹Ş´Â ¿ªÇÒ
+		admin_dto admin = dq.get_admin_dto(); //Modelì—ì„œ DTOë¥¼ ìƒì„±í•œ ê°’ì„ Controllerì— ë°›ëŠ” ì—­í• 
 		String aid = admin.getAid();
 		String master = admin.getMaster();
 
@@ -41,20 +41,20 @@ public class login_ok extends HttpServlet {
 	
 			if(master.equals("Y")) {
 				this.pw.write("<script>"
-						+ "alert('¸¶½ºÅÍ´Ô ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù..');"
+						+ "alert('ë§ˆìŠ¤í„°ë‹˜ ë¡œê·¸ì¸ í•˜ì…¨ìŠµë‹ˆë‹¤..');"
 						+ "location.href='./admin_list.do';"
 						+ "</script>");
 			}
 			else {
 				this.pw.write("<script>"
-						+ "alert('°ü¸®ÀÚ´Ô ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù..');"
+						+ "alert('ê´€ë¦¬ìë‹˜ ë¡œê·¸ì¸ í•˜ì…¨ìŠµë‹ˆë‹¤..');"
 						+ "location.href='./admin_list.do';"
 						+ "</script>");				
 			}
 		}
 		else {
 			this.pw.write("<script>"
-					+ "alert('¾ÆÀÌµğ ¹× ÆĞ½º¿öµå¸¦ È®ÀÎÇÏ¼¼¿ä.');"
+					+ "alert('ì•„ì´ë”” ë° íŒ¨ìŠ¤ì›Œë“œë¥¼ í™•ì¸í•˜ì„¸ìš”.');"
 					+ "history.go(-1);"
 					+ "</script>");
 		}
