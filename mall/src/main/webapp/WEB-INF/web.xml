@@ -26,10 +26,41 @@
 	<servlet>
 		<servlet-name>masterloginok</servlet-name>
 		<servlet-class>adlist.masterloginok</servlet-class>
+		<servlet-name>login_ok</servlet-name>
+		<servlet-class>admin.login_ok</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>masterloginok</servlet-name>
 		<url-pattern>/adlist/masterloginok.do</url-pattern>
+		<servlet-name>login_ok</servlet-name>
+		<url-pattern>/admin/login_ok.do</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>idcheck</servlet-name>
+		<servlet-class>admin.idcheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>idcheck</servlet-name>
+		<url-pattern>/admin/idcheck.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>join_ok</servlet-name>
+		<servlet-class>admin.join_ok</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>join_ok</servlet-name>
+		<url-pattern>/admin/join_ok.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>admin_list</servlet-name>
+		<servlet-class>admin.admin_list</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin_list</servlet-name>
+		<url-pattern>/admin/admin_list.do</url-pattern>
+	</servlet-mapping>
 </web-app>

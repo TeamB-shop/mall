@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>°ü¸®ÀÚ ÆäÀÌÁö</title>
+    <title>ê´€ë¦¬ìž íŽ˜ì´ì§€</title>
     <link rel="stylesheet" type="text/css" href="./css/basic.css">
     <link rel="stylesheet" type="text/css" href="./css/mainlogin.css?v=3">
     <link rel="icon" href="./img/logo.png" sizes="128x128">
@@ -18,25 +18,25 @@
     <header class="admin_title">
         <p><img src="./img/logo.png" class="logo_sm"> ADMINISTRATOR</p>
     </header>
-    <form id="frm" method="post" action="../adlist/masterloginok.do" onsubmit="return loginck()">
+    <form id="frm" method="post" action="./login_ok.do" onsubmit="return loginck()">
     <section class="admin_bgcolor">
         <div class="admin_login">
             <span>
                 <div class="left_div">
                 <ul>
-                <li><input type="text" class="input_text1" name="mid" placeholder="°ü¸®ÀÚ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></li>
-                <li><input type="password" class="input_text1" name="mpass" placeholder="°ü¸®ÀÚ ÆÐ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></li>
+                <li><input type="text" class="input_text1" name="aid" placeholder="ê´€ë¦¬ìž ì•„ì´ë””ë¥¼ ìž…ë ¥í•˜ì„¸ìš”"></li>
+                <li><input type="password" class="input_text1" name="apassword" placeholder="ê´€ë¦¬ìž íŒ¨ìŠ¤ì›Œë“œë¥¼ ìž…ë ¥í•˜ì„¸ìš”"></li>
                 </ul>
                 </div>
                 <div class="right_div">
                     <button type="submit" class="btn_submit" title="MASTER LOGIN">MASTER LOGIN</button>
                 </div>
-                <em class="alert_msg">¡Ø º» »çÀÌÆ®´Â °ü¸®ÀÚ ¿Ü¿¡´Â Á¢±ÙÀ» ±ÝÇÕ´Ï´Ù. ÆäÀÌÁö Á¢±Ù¿¡ ´ëÇÑ Á¢¼Ó Á¤º¸´Â ¸ðµÎ ±â·Ï µË´Ï´Ù.</em>
+                <em class="alert_msg">â€» ë³¸ ì‚¬ì´íŠ¸ëŠ” ê´€ë¦¬ìž ì™¸ì—ëŠ” ì ‘ê·¼ì„ ê¸ˆí•©ë‹ˆë‹¤. íŽ˜ì´ì§€ ì ‘ê·¼ì— ëŒ€í•œ ì ‘ì† ì •ë³´ëŠ” ëª¨ë‘ ê¸°ë¡ ë©ë‹ˆë‹¤.</em>
             </span>
             <span>
                 <ol class="admin_info">
-                    <li title="½Å±Ô °ü¸®ÀÚ µî·Ï¿äÃ»">½Å±Ô °ü¸®ÀÚ µî·Ï¿äÃ»</li>
-                    <li title="¾ÆÀÌµð/ÆÐ½º¿öµå Ã£±â">¾ÆÀÌµð/ÆÐ½º¿öµå Ã£±â</li>
+                    <li title="ì‹ ê·œ ê´€ë¦¬ìž ë“±ë¡ìš”ì²­"><a href="./add_master.jsp">ì‹ ê·œ ê´€ë¦¬ìž ë“±ë¡ìš”ì²­</li>
+                    <li title="ì•„ì´ë””/íŒ¨ìŠ¤ì›Œë“œ ì°¾ê¸°">ì•„ì´ë””/íŒ¨ìŠ¤ì›Œë“œ ì°¾ê¸°</li>
                 </ol>                
             </span>
         </div>
@@ -44,18 +44,18 @@
     </form>
     <footer class="admin_copy_login">
         <div>
-            Copyright ¨Ï 2024 shopbag All rights reserved.
+            Copyright â“’ 2024 shopbag All rights reserved.
         </div>
     </footer>
 </body>
 <script>
 function loginck(){
-	if(frm.mid.value == ""){
-		alert("¾ÆÀÌµð¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+	if(frm.aid.value == ""){
+		alert("ì•„ì´ë””ë¥¼ ìž…ë ¥í•˜ì„¸ìš”");
 		return false;
 	}
-	else if(frm.mpass.value == ""){
-		alert("ÆÐ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+	else if(frm.apassword.value == ""){
+		alert("íŒ¨ìŠ¤ì›Œë“œë¥¼ ìž…ë ¥í•˜ì„¸ìš”");
 		return false
 	}
 	else{
