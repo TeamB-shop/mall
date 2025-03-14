@@ -58,7 +58,7 @@
                         <option>CS팀</option>
                         <option>MD팀</option>
                     </select>
-                    <select class="add_select1" name="aposiition">
+                    <select class="add_select1" name="aposition">
                         <option>담당자 직책을 선택하세요</option>
                         <option>대표</option>
                         <option>부장</option>

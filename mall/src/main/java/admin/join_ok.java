@@ -29,7 +29,7 @@ public class join_ok extends HttpServlet {
 		dto.setAtel1(request.getParameter("atel1"));
 		dto.setAtel2(request.getParameter("atel2"));
 		dto.setAdepartment(request.getParameter("adepartment"));
-		dto.setAposiition(request.getParameter("aposiition"));
+		dto.setAposition(request.getParameter("aposition"));
 
 		
 		//DTO값을 insert Model 전달함

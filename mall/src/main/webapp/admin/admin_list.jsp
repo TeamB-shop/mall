@@ -1,5 +1,10 @@
+<%@page import="model.admin_dto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	ArrayList<admin_dto> admins = (ArrayList)request.getAttribute("admins");
+%>
 <!DOCTYPE html>
 <html>
 <html lang="ko">
@@ -31,23 +36,44 @@
         <li>가입일자</li>
         <li>승인여부</li>
     </ol>
+<%
+	if(admins.size() == 1) {  // 최소한개(0번째)는 마스터 정보가 저장되어 있음
+%>
     <ol class="new_admin_none">
         <li>신규 등록된 관리자가 없습니다.</li>
     </ol>
+<%
+	} else {
+		for(int i=1; i<admins.size(); i++) {
+			String tel = "010" + admins.get(i).getAtel1() + admins.get(i).getAtel2();
+%>
     <ol class="new_admin_lists2">
-        <li>1</li>
-        <li>한석봉</li>
-        <li>hansbong</li>
-        <li>01012345678</li>
-        <li>hansbong@hanmail.net</li>
-        <li>디자인팀</li>
-        <li>주임</li>
-        <li>2025-02-28</li>
+        <li><%=i%></li>
+        <li><%=admins.get(i).getAname()%></li>
+        <li><%=admins.get(i).getAid()%></li>
+        <li><%=tel%></li>
+        <li><%=admins.get(i).getAemail()%></li>
+        <li><%=admins.get(i).getAdepartment()%></li>
+        <li><%=admins.get(i).getAposition()%></li>
+        <li><%=admins.get(i).getAdate().substring(0,10)%></li>
         <li>
-            <input type="button" value="승인" class="new_addbtn1" title="승인">
-            <input type="button" value="미승인" class="new_addbtn2" title="미승인">
+<%
+			if(admins.get(i).getApproval().equals("N")) {
+%>
+				<input type="button" value="승인" class="new_addbtn1" title="승인">	
+<%
+			} else {
+%>
+        		<input type="button" value="미승인" class="new_addbtn2" title="미승인">
+<% 
+			}
+%>
         </li>
     </ol>
+<%			
+		}
+	}
+%>
 </section>
 <section></section>
 <section></section>

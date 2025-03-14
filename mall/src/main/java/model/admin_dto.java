@@ -1,7 +1,15 @@
 package model;
 
 public class admin_dto {
-	String aid,apassword,aname,aemail,atel1,atel2,adepartment,aposiition,master;
+	String aidx,aid,apassword,aname,aemail,atel1,atel2,adepartment,aposition,approval,master,adate;
+
+	public String getAidx() {
+		return aidx;
+	}
+
+	public void setAidx(String aidx) {
+		this.aidx = aidx;
+	}
 
 	public String getAid() {
 		return aid;
@@ -59,12 +67,20 @@ public class admin_dto {
 		this.adepartment = adepartment;
 	}
 
-	public String getAposiition() {
-		return aposiition;
+	public String getAposition() {
+		return aposition;
 	}
 
-	public void setAposiition(String aposiition) {
-		this.aposiition = aposiition;
+	public void setAposition(String aposition) {
+		this.aposition = aposition;
+	}
+
+	public String getApproval() {
+		return approval;
+	}
+
+	public void setApproval(String approval) {
+		this.approval = approval;
 	}
 	
 	public String getMaster() {
@@ -74,5 +90,14 @@ public class admin_dto {
 	public void setMaster(String master) {
 		this.master = master;
 	}
+	
+	public String getAdate() {
+		return adate;
+	}
+
+	public void setAdate(String adate) {
+		this.adate = adate;
+	}
+
 	
 }
