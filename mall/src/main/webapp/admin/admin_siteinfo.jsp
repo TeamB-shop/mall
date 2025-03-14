@@ -1,5 +1,8 @@
+<%@page import="spset.spset_dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,7 +20,7 @@
 <link rel="icon" href="./img/logo.png" sizes="16x16">
 </head>
 <body>
-	<%@include file="./top.jsp"%>
+	<%@include file="./top.jsp" %>
 	<form id="frm" action="../spset/admin_siteinfo_ok.do" method="post">
 		<main class="maincss">
 			<section>
