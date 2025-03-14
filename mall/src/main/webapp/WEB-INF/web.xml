@@ -24,16 +24,12 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>masterloginok</servlet-name>
-		<servlet-class>adlist.masterloginok</servlet-class>
-		<servlet-name>login_ok</servlet-name>
-		<servlet-class>admin.login_ok</servlet-class>
+	<servlet-name>login_ok</servlet-name>
+ 	<servlet-class>admin.login_ok</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>masterloginok</servlet-name>
-		<url-pattern>/adlist/masterloginok.do</url-pattern>
-		<servlet-name>login_ok</servlet-name>
-		<url-pattern>/admin/login_ok.do</url-pattern>
+	<servlet-name>login_ok</servlet-name>
+ 	<url-pattern>/admin/login_ok.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
