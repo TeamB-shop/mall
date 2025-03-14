@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import model.admin_dto;
 import model.data_query;
 import model.m_md5;
-import model.master_dto;
 
 public class login_ok extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,12 +31,12 @@ public class login_ok extends HttpServlet {
 		String result = dq.admin_login(this.dto); //Controller => Model로 DTO로 값을 전송
 		
 		admin_dto admin = dq.get_admin_dto(); //Model에서 DTO를 생성한 값을 Controller에 받는 역할
-		String aid = admin.getAid();
+		String aname = admin.getAname();
 		String master = admin.getMaster();
 
 		if(result == "ok") {
 			HttpSession session = request.getSession();
-			session.setAttribute("aid", aid);
+			session.setAttribute("aname", aname);
 	
 			if(master.equals("Y")) {
 				this.pw.write("<script>"

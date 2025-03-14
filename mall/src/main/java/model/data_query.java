@@ -50,15 +50,15 @@ public class data_query {
 		
 		try {
 			this.con = this.db.getConnection();
-			this.sql = "select aid, master from admin where aid=? and apassword=?";
+			this.sql = "select aname, master from admin where aid=? and apassword=?";
 			this.ps = this.con.prepareStatement(this.sql);
 			this.ps.setString(1, md.getAid());
 			this.ps.setString(2, md.getApassword());
 			this.rs = this.ps.executeQuery();
 			if(this.rs.next() == true) { //정상적으로 아이디 및 패스워드가 맞을 경우
 				this.result = "ok";
-				this.admin.setAid(this.rs.getString("aid"));  //아이디
-				this.admin.setMaster(this.rs.getString("master"));  //아이디
+				this.admin.setAname(this.rs.getString("aname"));  //이름
+				this.admin.setMaster(this.rs.getString("master"));  //master 여부('Y', 'N')
 			}
 			
 		}catch (Exception e) {
