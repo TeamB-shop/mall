@@ -1,7 +1,9 @@
 <%@page import="spset.spset_dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%
+spset_dto spdata = (spset_dto)request.getAttribute("spdata");
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -29,7 +31,7 @@
 				<div class="subpage_view">
 					<ul class="info_form">
 						<li>홈페이지 제목</li>
-						<li><input type="text" value="" class="in_form1" name="mname"></li>
+						<li><input type="text" value="<%= spdata != null ? spdata.getMname() : "" %>" class="in_form1" name="mname"></li>
 					</ul>
 					<ul class="info_form">
 						<li>관리자 메일 주소</li>

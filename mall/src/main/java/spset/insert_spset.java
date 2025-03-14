@@ -11,7 +11,8 @@ public class insert_spset {
 	String sql = null;
 	m_dbinfo db = new m_dbinfo();
 	Integer result = null;
-
+	
+	
 	public Integer insert_datas(spset_dto m) {
 		try {
 			this.con = this.db.getConnection();
