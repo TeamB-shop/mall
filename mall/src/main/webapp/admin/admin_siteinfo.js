@@ -1,5 +1,6 @@
 function save_set() {
 	var frm = document.getElementById("frm"); // 폼 가져오기
+	var numregex=/[^0-9]/g;
 
 
 	if (frm.mname.value.trim() == "") {
