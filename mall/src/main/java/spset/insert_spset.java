@@ -2,6 +2,7 @@ package spset;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import model.m_dbinfo;
 
@@ -11,12 +12,30 @@ public class insert_spset {
 	String sql = null;
 	m_dbinfo db = new m_dbinfo();
 	Integer result = null;
+	ResultSet rs = null;
 	
 	
 	public Integer insert_datas(spset_dto m) {
 		try {
 			this.con = this.db.getConnection();
-			this.sql = "INSERT INTO mallset VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			this.sql = "select count(*) from mallset";
+			this.ps = this.con.prepareStatement(this.sql);
+			this.rs = this.ps.executeQuery();
+			this.rs.next();
+			int counter = this.rs.getInt(1);
+			this.rs.close();
+			this.ps.close();
+			if(counter>0) {
+				this.sql = "update mallset set mname=?, admin_email=?, use_point=?, signup_point=?, signup_lv=?, cpname=?, cpno=?, ceoname=?, ceotel=?, ecommno=?, "
+						+ "telcommno=?, bzipcode=?, baddr=?, secname=?, secmail=?, banknm=?, bankaccno=?, use_creditcard=?, use_mobile=?, use_gift=?, min_p_pay=?, "
+						+ "max_p_pay=?, use_cash_rec=?, shipp_compnm=?, shipp_fee=?, des_deliv_date=?";
+			}else {
+				this.sql = "insert into mallset values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			}
+			
+			
+			
+			
 
 			// DTO getter를 이용해 db에 저장
 			this.ps = this.con.prepareStatement(this.sql);
@@ -57,6 +76,7 @@ public class insert_spset {
 			this.result = null;
 		} finally {
 			try {
+				this.rs.close();
 				this.ps.close();
 				this.con.close();
 			} catch (Exception e) {

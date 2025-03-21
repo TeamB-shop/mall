@@ -1,7 +1,56 @@
-function save_set() {
-	var frm = document.getElementById("frm"); // 폼 가져오기
-	var numregex=/[^0-9]/g;
+//regex부분
+function emailvali(input) {
+	var emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9가-힣.-]+\.[a-zA-Z가-힣]{2,}$/;
+	var value = input.value.trim();
 
+
+	if (!emailregex.test(value)) {
+		alert("유효하지 않은 이메일 형식입니다.");
+		input.focus();
+		input.value = "";
+	}
+}
+function numvali(input) {
+	var numregex = /[^0-9]/g;
+	const value = input.value.trim();
+
+
+	if (!numregex.test(value)) {
+		alert("유효하지 않은 숫자 형식입니다.");
+		input.focus();
+		input.value = "";
+	}
+}
+function phonevali(input) {
+	var phoneRegex = /^0\d{1,2}\d{3,4}\d{4}$/;
+	var value = input.value.trim();
+
+
+	if (!phoneRegex.test(value)) {
+		alert("유효하지 않은 번호 형식입니다.");
+		input.focus();
+		input.value = "";
+	}
+}
+function charvali(input) {
+	var charRegex = /[a-zA-Zㄱ-힣]/;
+	var value = input.value.trim();
+
+
+	if (!charRegex.test(value)) {
+		alert("유효하지 문자 형식입니다.");
+		input.focus();
+		input.value = "";
+	}
+}
+
+function change_set() {
+	console.log("change!!!");
+}
+
+function save_set() {
+
+	var frm = document.getElementById("frm"); // 폼 가져오기
 
 	if (frm.mname.value.trim() == "") {
 		alert("홈페이지 이름을 입력하세요.");
@@ -105,8 +154,15 @@ function save_set() {
 	}
 
 	// 모든 검증을 통과하면 폼 제출
+	if(confirm("해당 정보를 사이트에 반영하시겠습니까?")){
 	frm.submit();
+		
+	}
 }
 function save_cancel() {
-	console.log("취소버튼 해야함");
+	if(confirm("해당 정보를 반영하지 않겠습니까?")){
+	location.reload;
+	}
+	
+	
 }
