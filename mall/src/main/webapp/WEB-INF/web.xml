@@ -83,6 +83,14 @@
 		<servlet-name>logout</servlet-name>
 		<url-pattern>/admin/logout.do</url-pattern>
 	</servlet-mapping>
-
+<!-- 게시판 부분 -->
+	<servlet>
+		<servlet-name>notice_list</servlet-name>
+		<servlet-class>notice.notice_list</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>notice_list</servlet-name>
+		<url-pattern>/admin/notice_list.do</url-pattern>
+	</servlet-mapping>
 	<!-- 선익 -->
 </web-app>
