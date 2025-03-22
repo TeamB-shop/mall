@@ -22,6 +22,7 @@
 <section>
     <p>공지사항 관리페이지</p>
     <div class="subpage_view">
+    
     <ul>
         <li><input type="checkbox"></li>
         <li>NO</li>
@@ -38,17 +39,16 @@
         <li>2025-02-17</li>
         <li>100</li>
     </ol>
+    
     <ol class="none_text">
         <li>등록된 공지 내용이 없습니다.</li>
     </ol>
     </div>
-<!--     todo : 세션으로 글삭제,등록 핸들링 -->
-<%--     <%if(aname !=null){%> --%>
     <div class="board_btn">
         <button class="border_del">공지삭제</button>
-        <button class="border_add" onclick="location.href='./notice_write.html'">공지등록</button>
+        <button class="border_add" onclick="location.href='./notice_write.do'">공지등록</button>
     </div>
-<%--     <%}%> --%>
+
     
     <div class="border_page">
         <ul class="pageing">

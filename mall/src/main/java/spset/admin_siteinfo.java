@@ -27,7 +27,7 @@ public class admin_siteinfo extends HttpServlet {
     	        rp.sendRedirect("/mall/admin/index.do"); 
     	        return;
     	    }else {
-    	    	System.out.println("세션있음!!" + session.getAttribute("aname"));
+//    	    	System.out.println("세션있음!!" + session.getAttribute("aname"));
     	
     	
     	
