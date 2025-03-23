@@ -104,15 +104,53 @@
 		<servlet-name>notice_write</servlet-name>
 		<url-pattern>/admin/notice_write.do</url-pattern>
 	</servlet-mapping>
+	
 <servlet>
     <servlet-name>notice_write_ok</servlet-name>
     <servlet-class>notice.notice_write_ok</servlet-class>
 </servlet>
-
 <servlet-mapping>
     <servlet-name>notice_write_ok</servlet-name>
     <url-pattern>/admin/notice_writeok.do</url-pattern>
 </servlet-mapping>
+
+	<servlet>
+		<servlet-name>notice_view</servlet-name>
+	<servlet-class>notice.notice_view</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>notice_view</servlet-name>
+		<url-pattern>/admin/notice_view.do</url-pattern>
+	</servlet-mapping>
+	
+	  <servlet>
+    <servlet-name>notice_delete</servlet-name>
+    <servlet-class>notice.notice_delete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>notice_delete</servlet-name>
+    <url-pattern>/admin/notice_delete.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  <servlet-name>notice_edit</servlet-name>
+  <servlet-class>notice.notice_edit</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>notice_edit</servlet-name>
+  <url-pattern>/admin/notice_edit.do</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>notice_edit_ok</servlet-name>
+  <servlet-class>notice.notice_edit_ok</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>notice_edit_ok</servlet-name>
+  <url-pattern>/admin/notice_edit_ok.do</url-pattern>
+</servlet-mapping>
+
 
 	<!-- 게시판 부분 -->
 	<!-- 선익 -->

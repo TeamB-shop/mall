@@ -15,10 +15,11 @@
 </head>
 <body>
 <%@include file="./top.jsp" %>
-<main class="maincss">
+<main class="maincss"> 
 <section>
     <p>공지사항 등록페이지</p>
-<form id="frm" method="post" action="./notice_writeok.do" enctype="multipart/form-data">
+<form id="frm" method="post" action="/mall/admin/notice_writeok.do" enctype="multipart/form-data">
+
 <div class="write_view">
 <ul>
     <li>공지사항 여부</li>
