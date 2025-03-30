@@ -5,15 +5,8 @@
 	version="3.1">
 	<display-name>mall</display-name>
 
-	<servlet>
-		<servlet-name>login_approve</servlet-name>
-		<servlet-class>admin.login_approve</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>login_approve</servlet-name>
-		<url-pattern>/admin/login_approve.do</url-pattern>
-	</servlet-mapping>
-
+	<!-- 김형중(시작) -->
+	<!-- 로그인, 관리자 등록(시작) -->
 	<servlet>
 		<servlet-name>index</servlet-name>
 		<servlet-class>admin.index</servlet-class>
@@ -50,7 +43,6 @@
 		<url-pattern>/admin/join_ok.do</url-pattern>
 	</servlet-mapping>
 
-
 	<servlet>
 		<servlet-name>admin_list</servlet-name>
 		<servlet-class>admin.admin_list</servlet-class>
@@ -59,7 +51,85 @@
 		<servlet-name>admin_list</servlet-name>
 		<url-pattern>/admin/admin_list.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>login_approve</servlet-name>
+		<servlet-class>admin.login_approve</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login_approve</servlet-name>
+		<url-pattern>/admin/login_approve.do</url-pattern>
+	</servlet-mapping>
+	<!-- 로그인, 관리자 등록(시작) -->
+	
+	<!-- 상품관리(시작) -->
+	<servlet>
+		<servlet-name>category_write</servlet-name>
+		<servlet-class>product.category_write</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>category_write</servlet-name>
+		<url-pattern>/admin/category_write.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>category_write_ok</servlet-name>
+		<servlet-class>product.category_write_ok</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>category_write_ok</servlet-name>
+		<url-pattern>/admin/category_write_ok.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>category_list</servlet-name>
+		<servlet-class>product.category_list</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>category_list</servlet-name>
+		<url-pattern>/admin/category_list.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>product_list</servlet-name>
+		<servlet-class>product.product_list</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>product_list</servlet-name>
+		<url-pattern>/admin/product_list.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>product_write</servlet-name>
+		<servlet-class>product.product_write</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>product_write</servlet-name>
+		<url-pattern>/admin/product_write.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>product_write_ok</servlet-name>
+		<servlet-class>product.product_write_ok</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>product_write_ok</servlet-name>
+		<url-pattern>/admin/product_write_ok.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>productcode_check</servlet-name>
+		<servlet-class>product.productcode_check</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>productcode_check</servlet-name>
+		<url-pattern>/admin/productcode_check.do</url-pattern>
+	</servlet-mapping>
+	<!-- 상품관리(끝) -->
+	<!-- 김형중(끝) -->
+	
 	<!-- 선익 -->
+	<!-- 쇼핑몰 기본설정(시작) -->
 	<servlet>
 		<servlet-name>admin_siteinfo_ok</servlet-name>
 		<servlet-class>spset.admin_siteinfo_ok</servlet-class>
@@ -76,8 +146,9 @@
 		<servlet-name>admin_siteinfo</servlet-name>
 		<url-pattern>/admin/admin_siteinfo.do</url-pattern>
 	</servlet-mapping>
-
-
+	<!-- 쇼핑몰 기본설정(끝) -->
+	
+	<!-- 로그아웃 -->
 	<servlet>
 		<servlet-name>logout</servlet-name>
 		<servlet-class>admin.logout</servlet-class>
@@ -86,7 +157,8 @@
 		<servlet-name>logout</servlet-name>
 		<url-pattern>/admin/logout.do</url-pattern>
 	</servlet-mapping>
-	<!-- 게시판 부분 -->
+	
+	<!-- 게시판(시작) -->
 	<servlet>
 		<servlet-name>notice_list</servlet-name>
 		<servlet-class>notice.notice_list</servlet-class>
@@ -105,14 +177,14 @@
 		<url-pattern>/admin/notice_write.do</url-pattern>
 	</servlet-mapping>
 	
-<servlet>
-    <servlet-name>notice_write_ok</servlet-name>
-    <servlet-class>notice.notice_write_ok</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>notice_write_ok</servlet-name>
-    <url-pattern>/admin/notice_writeok.do</url-pattern>
-</servlet-mapping>
+	<servlet>
+	    <servlet-name>notice_write_ok</servlet-name>
+	    <servlet-class>notice.notice_write_ok</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>notice_write_ok</servlet-name>
+	    <url-pattern>/admin/notice_writeok.do</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>notice_view</servlet-name>
@@ -123,33 +195,32 @@
 		<url-pattern>/admin/notice_view.do</url-pattern>
 	</servlet-mapping>
 	
-	  <servlet>
-    <servlet-name>notice_delete</servlet-name>
-    <servlet-class>notice.notice_delete</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>notice_delete</servlet-name>
-    <url-pattern>/admin/notice_delete.do</url-pattern>
-  </servlet-mapping>
+	<servlet>
+	    <servlet-name>notice_delete</servlet-name>
+	    <servlet-class>notice.notice_delete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>notice_delete</servlet-name>
+	    <url-pattern>/admin/notice_delete.do</url-pattern>
+    </servlet-mapping>
   
-  
-   <servlet>
-   <servlet-name>notice_edit</servlet-name>
-   <servlet-class>notice.notice_edit</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>notice_edit</servlet-name>
-   <url-pattern>/admin/notice_edit.do</url-pattern>
- </servlet-mapping>
+    <servlet>
+        <servlet-name>notice_edit</servlet-name>
+        <servlet-class>notice.notice_edit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>notice_edit</servlet-name>
+        <url-pattern>/admin/notice_edit.do</url-pattern>
+    </servlet-mapping>
  
- <servlet>
-   <servlet-name>notice_edit_ok</servlet-name>
-   <servlet-class>notice.notice_edit_ok</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>notice_edit_ok</servlet-name>
-   <url-pattern>/admin/notice_edit_ok.do</url-pattern>
- </servlet-mapping>
-	<!-- 게시판 부분 -->
-	<!-- 선익 -->
+    <servlet>
+        <servlet-name>notice_edit_ok</servlet-name>
+        <servlet-class>notice.notice_edit_ok</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>notice_edit_ok</servlet-name>
+        <url-pattern>/admin/notice_edit_ok.do</url-pattern>
+    </servlet-mapping>
+	<!-- 게시판(끝) -->
+	<!-- 선익(끝) -->
 </web-app>
