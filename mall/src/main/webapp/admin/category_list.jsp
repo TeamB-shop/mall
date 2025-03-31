@@ -1,4 +1,4 @@
-<%@page import="product.category_dto"%>
+<%@page import="model.category_dto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -55,7 +55,7 @@
         <li>카테고리명</li>
         <li>소메뉴 코드(사용안함)</li>
         <li>소메뉴명(사용안함)</li>
-        <li>사용 유/무(사용안함)</li>
+        <li>사용 유/무</li>
         <li>관리</li>
     </ul>
 <%
@@ -75,14 +75,14 @@
 		for(int i=0; i<view_all.size(); i++){
 %>
     <ul>
-        <li><input type="checkbox" name="ckboxs" value="<%=view_all.get(i).getCategory_code()%>"></li>
+        <li><input type="checkbox" name="ckboxs" value="<%=view_all.get(i).getCategory_code()%>" onclick="check_one()"></li>
         <li style="text-align: left; text-indent: 5px;">-</li>
         <li><%=view_all.get(i).getCategory_code()%></li>
         <li style="text-align: left; text-indent: 5px;"><%=view_all.get(i).getCategory_name()%></li>
         <li>-</li>
         <li style="text-align: left; text-indent: 5px;">-</li>
         <li>-</li>
-        <li>[수정]</li>
+        <li>-</li>
     </ul>
 <%
 		}
@@ -142,13 +142,25 @@ function category_search(){
 	}
 }
 
-//전체선택 관련 핸들링 함수
+//전체 체크박스 선택/해제
 function check_all(ck){ 
 	var ckboxs = document.getElementsByName("ckboxs");
 
 	for(var i=0; i<ckboxs.length; i++){
 		ckboxs[i].checked = ck;
 	}
+}
+
+//개별 체크 상태에 따라 전체 동의 체크박스 컨트롤
+function check_one(){ 
+	var ckboxs = document.getElementsByName("ckboxs");
+	var all_cheched = true;
+	for(var i=0; i<ckboxs.length; i++){
+		if (!ckboxs[i].checked){
+			all_cheched = false;
+		}
+	}
+	document.getElementById("allck").checked = all_cheched;
 }
 
 //삭제 함수
@@ -164,7 +176,7 @@ function check_del(){
 	}
 	dform.ckdel.value = ar;
 	console.log(dform.ckdel.value);
-	if(confirm("해당 데이터를 삭제시 복구 되지 않습니다.")){
+	if(confirm("카테고리를 삭제하면 해당 카테고리에 해당하는 상품도 모두 삭제됩니다. 신중히 삭제하시기 바랍니다. 삭제시 복구 되지 않습니다.")){
 		dform.submit();
 	}
 }

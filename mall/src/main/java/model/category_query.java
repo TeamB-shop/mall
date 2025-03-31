@@ -1,4 +1,4 @@
-package product;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import model.m_dbinfo;
 
 public class category_query {
 	

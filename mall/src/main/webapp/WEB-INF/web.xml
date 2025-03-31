@@ -60,7 +60,7 @@
 		<servlet-name>login_approve</servlet-name>
 		<url-pattern>/admin/login_approve.do</url-pattern>
 	</servlet-mapping>
-	<!-- 로그인, 관리자 등록(시작) -->
+	<!-- 로그인, 관리자 등록() -->
 	
 	<!-- 상품관리(시작) -->
 	<servlet>
@@ -106,6 +106,15 @@
 	<servlet-mapping>
 		<servlet-name>product_list</servlet-name>
 		<url-pattern>/admin/product_list.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>product_delete</servlet-name>
+		<servlet-class>product.product_delete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>product_delete</servlet-name>
+		<url-pattern>/admin/product_delete.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

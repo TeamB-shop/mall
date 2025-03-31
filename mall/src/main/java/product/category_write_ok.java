@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.category_dto;
+import model.category_query;
+
 public class category_write_ok extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

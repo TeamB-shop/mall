@@ -1,15 +1,15 @@
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="product.product_dto"%>
+<%@page import="model.product_dto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	int ctn_per_page = (int)request.getAttribute("ctn_per_page"); //페이지당 출력갯수 
+int ctn_per_page = (int)request.getAttribute("ctn_per_page"); //페이지당 출력갯수 
 	
 	Map<String, Object> result = (Map)request.getAttribute("result");
 	int total_ctn = (int)result.get("total_ctn");  //게시물 총갯수 
-	ArrayList<product_dto> view_all = (ArrayList)result.get("view_all");
+	ArrayList<model.product_dto> view_all = (ArrayList)result.get("view_all");
 	
 	//페이지번호 갯수 계산 예시 : 7.0/3.0 = 2.33 => Math.ceil(2.33) = 3 (참고로 정수/정수는 정수이므로 double 형변환이 필요)
 	int pageno_ctn = (int)Math.ceil((double)total_ctn/(double)ctn_per_page);  //페이지번호 갯수
@@ -49,7 +49,7 @@
 </div>
 <div class="subpage_view2">
     <ul>
-        <li><input type="checkbox"></li>
+        <li><input type="checkbox" id="allck" onclick="check_all(this.checked)"></li>
         <li>코드</li>
         <li>이미지</li>
         <li>상품명</li>
@@ -80,7 +80,7 @@
 		for(int i=0; i<view_all.size(); i++){
 %>
     <ul>
-        <li><input type="checkbox"></li>
+        <li><input type="checkbox" name="ckboxs" value="<%=view_all.get(i).getProduct_code()%>"></li>
         <li><%=view_all.get(i).getProduct_code()%></li>
 <%
 			if(view_all.get(i).getMain_image_path() != null){
@@ -101,7 +101,7 @@
         <li><%=df.format(view_all.get(i).getStock())%></li>
         <li><%=view_all.get(i).getSale_status()%></li>
         <li><%=view_all.get(i).getEarly_soldout()%></li>
-        <li>관리</li>
+        <li>-</li>
     </ul>
 <%
 		}
@@ -124,13 +124,19 @@
     </ul>
 </div>
 <div class="subpage_view4">
-    <input type="button" value="선택상품 삭제" title="선택상품 삭제" class="p_button">
+    <input type="button" value="선택상품 삭제" title="선택상품 삭제" class="p_button" onclick="check_del()">
     <span style="float: right;">
     <a href="./product_write.do"><input type="button" value="신규상품 등록" title="신규상품 등록" class="p_button p_button_color1"></a>
     <a href="./category_write.do"><input type="button" value="카테고리 등록" title="카테고리 등록" class="p_button p_button_color2"></a>
     </span>
 </div>
 </section>
+
+<!-- form 전송으로 선택된 값을 삭제 -->
+<form id="dform" method="post" action="./product_delete.do">
+<input type="hidden" name="ckdel" value="">
+</form>
+
 </main>
 <footer class="main_copyright">
     <div>
@@ -151,6 +157,33 @@ function product_search(){
 		var search_word = frm.search_word.value
 		frm.action = "./product_list.do?search_key="+search_key+"&search_word="+search_word;
 		return true;
+	}
+}
+
+//전체선택 관련 핸들링 함수
+function check_all(ck){ 
+	var ckboxs = document.getElementsByName("ckboxs");
+
+	for(var i=0; i<ckboxs.length; i++){
+		ckboxs[i].checked = ck;
+	}
+}
+
+//삭제 함수
+function check_del(){
+	var ar = new Array();  //script 배열
+	
+	var ckboxs = document.getElementsByName("ckboxs");
+
+	for(var i=0; i<ckboxs.length; i++){
+		if(ckboxs[i].checked){
+			ar.push(ckboxs[i].value);
+		}
+	}
+	dform.ckdel.value = ar;
+	console.log(dform.ckdel.value);
+	if(confirm("해당 데이터를 삭제시 복구 되지 않습니다.")){
+		dform.submit();
 	}
 }
 </script>

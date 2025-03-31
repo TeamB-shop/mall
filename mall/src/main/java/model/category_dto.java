@@ -1,4 +1,4 @@
-package product;
+package model;
 
 public class category_dto {
 	int cidx;

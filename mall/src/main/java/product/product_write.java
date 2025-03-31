@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.category_dto;
+import model.category_query;
 import model.random_number;
 
 public class product_write extends HttpServlet {

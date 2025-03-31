@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.category_query;
+
 public class category_list extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final int ctn_per_page = 5;  //페이지당 출력갯수

@@ -1,4 +1,4 @@
-package product;
+package model;
 
 public class product_dto {
 	int pidx, price, discount_rate, discount_price, stock;

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import model.file_nename;
+import model.product_dto;
+import model.product_query;
 
 @MultipartConfig(
 		fileSizeThreshold = 1024 * 1024 * 2, //2MB

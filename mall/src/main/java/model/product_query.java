@@ -1,4 +1,4 @@
-package product;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import model.m_dbinfo;
 
 public class product_query {
 	
@@ -142,7 +140,7 @@ public class product_query {
 		return result;
 	}
     
-public Map<String, Object> select_product_search(String search_key, String search_word, int ctn) throws Exception{
+    public Map<String, Object> select_product_search(String search_key, String search_word, int ctn) throws Exception{
 		
 		product_dto pdto = null;
 		ArrayList<product_dto> view_all = new ArrayList<>();
@@ -207,4 +205,43 @@ public Map<String, Object> select_product_search(String search_key, String searc
 	
 		return result;
 	}
+
+	public int delete_product(String column_name, String product_code) throws Exception{
+	
+		int result = 0;
+	
+		this.con = db.getConnection();
+		String sql = "delete from product where " + column_name + " = ?";
+		this.ps = con.prepareStatement(sql);
+		this.ps.setString(1, product_code);
+		
+		result = this.ps.executeUpdate();
+	
+	    try {
+	        if (this.ps != null) this.ps.close();
+	        if (this.con != null) this.con.close();
+	    } catch (Exception e) {
+	        e.printStackTrace(); // 자원 해제 실패 시 출력
+	    }
+	
+	    return result;
+	}
+	
+	public product_dto select_img_pass(String product_code) throws Exception{
+		
+		this.con = db.getConnection();
+		String sql = "select main_image_path,sub1_image_path,sub2_image_path from product where product_code=?";
+		this.ps = con.prepareStatement(sql);
+		this.ps.setString(1, product_code);
+		this.rs = this.ps.executeQuery();
+		this.rs.next();
+		
+		product_dto pdto = new product_dto();
+		pdto.setMain_image_path(this.rs.getString("main_image_path"));
+		pdto.setSub1_image_path(this.rs.getString("sub1_image_path"));
+		pdto.setSub2_image_path(this.rs.getString("sub2_image_path"));
+		
+		return pdto;
+	}
+
 }
