@@ -89,6 +89,15 @@
 		<servlet-name>category_list</servlet-name>
 		<url-pattern>/admin/category_list.do</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>category_delete</servlet-name>
+		<servlet-class>product.category_delete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>category_delete</servlet-name>
+		<url-pattern>/admin/category_delete.do</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>product_list</servlet-name>

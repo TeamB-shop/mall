@@ -115,7 +115,7 @@ public class category_query {
 		return result;
 	}
     
-public Map<String, Object> select_category_search(String search_key, String search_word, int ctn) throws Exception {
+    public Map<String, Object> select_category_search(String search_key, String search_word, int ctn) throws Exception {
 		
 		category_dto cdto = null;
 		ArrayList<category_dto> view_all = new ArrayList<>();
@@ -155,4 +155,25 @@ public Map<String, Object> select_category_search(String search_key, String sear
         
 		return result;
 	}
+    
+    public int delete_category(String category_code) throws Exception{
+    	
+    	int result = 0;
+ 
+		this.con = db.getConnection();
+		String sql = "delete from category where category_code=?";
+		this.ps = con.prepareStatement(sql);
+		this.ps.setString(1, category_code);
+		
+		result = this.ps.executeUpdate();
+
+        try {
+            if (this.ps != null) this.ps.close();
+            if (this.con != null) this.con.close();
+        } catch (Exception e) {
+            e.printStackTrace(); // 자원 해제 실패 시 출력
+        }
+		
+		return result;
+    }
 }
