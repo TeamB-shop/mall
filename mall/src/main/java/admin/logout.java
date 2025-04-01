@@ -18,6 +18,6 @@ public class logout extends HttpServlet {
           }
 
           // 로그인 페이지로 리다이렉트
-          rp.sendRedirect("/mall/admin/index.do");
+          rp.sendRedirect("./index.do");
       }
   }
