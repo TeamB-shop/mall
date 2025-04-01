@@ -6,7 +6,7 @@
 %>
 <header class="headercss">
     <div class="header_div">
-        <p><a href="./admin_list.do"><img src="./img/logo.png" class="logo_sm"> ADMINISTRATOR</a></p>
+        <p><img src="./img/logo.png" class="logo_sm" onclick="location.href='./admin_list.do'"> ADMINISTRATOR</a></p>
         <p><%=aname%> 관리자 <a href="#">[개인정보 수정]</a>
         <a href="./logout.do">[로그아웃]</a> <!-- 로그아웃 버튼 기능 추가 -->
         </p>
